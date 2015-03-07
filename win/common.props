@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--This file contains common properties for all MSVC projects,
+  to be included just after Microsoft.Cpp.Default.props in each .vcxproj-->
+  <PropertyGroup>
+    <!--For release builds support XP systems by default-->
+    <PlatformToolset Condition="'$(PlatformToolset)' == 'v110' And ($(Configuration.ToLower().IndexOf('release')) &gt; -1 )">v110_xp</PlatformToolset>
+    <PlatformToolset Condition="'$(PlatformToolset)' == 'v120' And ($(Configuration.ToLower().IndexOf('release')) &gt; -1 )">v120_xp</PlatformToolset>
+  </PropertyGroup>
+</Project>
