@@ -26,12 +26,8 @@
 
 
 
-
-#include <wx/wx.h>
-#include <wx/bitmap.h>
-#include <wx/filedlg.h>
+#include <wx/wxprec.h>
 #include <wx/filefn.h>
-#include <wx/image.h>
 #include <wx/ffile.h>
 #include <wx/filename.h>
 #include <wx/progdlg.h>
@@ -41,6 +37,20 @@
 
 #ifdef __WXMAC__
 #include <wx/mac/private.h>
+#endif
+
+#if defined(_MSC_VER) && defined(WXUSINGDLL)
+/* zlib functions are called in in libid3tag code,
+   zlib is in the wxBase DLL, however those functions are not exported for
+   external usage from that DLL, so, unfortunately we must statically link
+   to the wxWidgets zlib in order to use those zlib functions.
+   zlib is automatically linked to by msvc/wx/setup.h prior to wxWidgets 2.9.4.
+   Starting there, it is no longer linked to if WXUSINGDLL. So we must
+   statically link to zlib if we're using wxWidgets 2.9.4 or later.*/
+#if (wxMAJOR_VERSION >= 3) || \
+    (wxMAJOR_VERSION == 2) && (wxMINOR_VERSION == 9) && (wxRELEASE_NUMBER >= 4)
+#pragma comment(lib, wx3RD_PARTY_LIB_NAME("zlib"))
+#endif
 #endif
 
 #include "audacity/Types.h"
