@@ -64,7 +64,7 @@
 	/*	Win32 doesn't seem to have these functions.
 	**	Therefore implement inline versions of these functions here.
 	*/
-#if (_MSC_VER == 1500)
+#if (_MSC_VER < 1800) /* lrintf et. al were added to MSVC2013 */
 	__inline long int
 	lrint (double flt)
 	{	int intgr;

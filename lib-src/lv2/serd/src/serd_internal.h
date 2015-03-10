@@ -38,6 +38,12 @@
 #    define MIN(a, b) (((a) < (b)) ? (a) : (b))
 #endif
 
+#if defined(_MSC_VER)
+#    if _MSC_VER >= 1800 /* fmax added as of VS 2013.*/
+#        define HAVE_FMAX
+#    endif
+#endif
+
 #ifndef HAVE_FMAX
 static inline double
 fmax(double a, double b)

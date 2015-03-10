@@ -23,10 +23,10 @@ typedef unsigned __int64  uint64_t;
 #define ssize_t           SSIZE_T
 #define __func__          __FUNCTION__
 
-/*	Win32 doesn't seem to have these functions. 
+/*	Versions before MSVC2013 don't have these functions.
 **	Therefore implement inline versions of these functions here.
 */
-#if (_MSC_VER == 1500)
+#if (_MSC_VER < 1800)
 __inline long int 
 lrint (double flt)
 {	int intgr;

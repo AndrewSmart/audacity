@@ -1012,8 +1012,8 @@ LVAL xsetdir(void);
 int osdir_list_start(char *path);
 char *osdir_list_next();
 void osdir_list_finish();
-LVAL xosc_enable();
-LVAL xget_temp_path();
+LVAL xosc_enable(void);
+LVAL xget_temp_path(void);
 LVAL xfind_in_xlisp_path();
 
 /* These are now implemented in path.c   -dmazzoni */

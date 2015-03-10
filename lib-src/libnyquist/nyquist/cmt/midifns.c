@@ -100,6 +100,8 @@
 #endif /* UNIX_ITC */
 
 #ifdef  DOS
+/* Required for tolower(c) in xval(c), within DOS specific code */
+#include <ctype.h>
 #ifndef WINDOWS
 #include "timer.h"
 #include "mpu.h"

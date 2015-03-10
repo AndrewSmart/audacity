@@ -28,6 +28,14 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# if defined(_MSC_VER)
+#  if _MSC_VER >= 1400 /* Where dup, dup2, and close were marked deprecated. */
+#   include <io.h>
+#   define dup(a) _dup(a)
+#   define dup2(a,b) _dup2(a,b)
+#   define close(a) _close(a)
+#  endif
+# endif
 
 # ifdef HAVE_UNISTD_H
 #  include <unistd.h>

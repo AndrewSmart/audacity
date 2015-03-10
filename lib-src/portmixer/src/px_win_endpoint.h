@@ -43,11 +43,16 @@ extern "C"
 {
 #endif /* __cplusplus */
 
+typedef struct IAudioEndpointVolume IAudioEndpointVolume;
+
 typedef struct PxEPInfo
 {
    IAudioEndpointVolume *inputEP;
    IAudioEndpointVolume *outputEP;
 } PxEPInfo;
+
+int open_ep_mixers(px_mixer *Px, UINT deviceIn, UINT deviceOut);
+int open_ep_mixers_byid(px_mixer *Px, const wchar_t *deviceIn, const wchar_t *deviceOut);
 
 #ifdef __cplusplus
 }

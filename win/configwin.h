@@ -45,8 +45,9 @@
 
 #define INSTALL_PREFIX "."
 
-#if (_MSC_VER == 1500)
+#if (_MSC_VER < 1800) // rint et. al were added to MSVC2013
 #define rint(x)   (floor((x)+0.5f)) 
+#define roundf(x) rint(x)
 #endif
 
 #ifdef _DEBUG
